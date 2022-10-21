@@ -2,10 +2,10 @@ let mysql = require("mysql2");
   
 // create the connection to database
 exports.db = mysql.createPool({
-  connectionLimit: 15,
-  queueLimit: 10,
-  host: '192.168.10.102',
-  user: 'admin',
-  password: 'sisdabr4nt4s',
-  database: 'permohonan'
+  connectionLimit: 1000,
+  queueLimit: 1000,
+  host: '127.0.0.1',
+  user: 'root',
+  password: '',
+  database: 'hub'
 }); 

@@ -18,21 +18,18 @@
       <img src="@/assets/logo.svg" alt="Logo" class="w-10">
       <div class="ml-2 flex flex-col">
         <h1 class="text-sm text-gray-700 font-medium">Admin Panel</h1>
-        <p class="text-gray-400 text-xs">Rekomtek</p>
+        <p class="text-gray-400 text-xs">Hidrologi</p>
       </div>
     </header>
     <!-- Menu -->
     <div class="mt-14">
       <menu-header text="Development" />
       <menu-item icon="lightning-bolt-icon-o" text="Getting Started" :route="{name: 'dev-getting-started'}" />
-      <menu-item icon="cube-icon-o" text="Menu">
+      <menu-item icon="cube-icon-o" text="Curah Hujan">
         <template #sub-menu>
-          <menu-item-sub text="List Permohonan" :route="{name: 'list'}" />
-          <menu-item-sub text="List Status" :route="{name: 'listStatus'}" />
-          <menu-item-sub text="List Izin" :route="{name: 'listIzin'}" />
-          <menu-item-sub text="Form Permohonan" :route="{name: 'permohonan'}" />
-            <menu-item-sub text="Form Status" :route="{name: 'formstatus'}" />
-            <menu-item-sub text="Form Izin" :route="{name: 'formIzin'}" />
+          <menu-item-sub text="Input Data Pos" :route="{name: 'inputpos'}" />
+          <menu-item-sub text="Input Pos Curah Hujan" :route="{name: 'inputdatapos'}" />
+          <menu-item-sub text="Data Pos" :route="{name: 'listpos'}" />
         </template>
       </menu-item>
 

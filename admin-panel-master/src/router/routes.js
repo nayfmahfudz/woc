@@ -39,18 +39,18 @@ const routes = [
         component: () => import('@/pages/developments/Form/index.vue')
       },
       {
-        path: 'list',
-        name: 'list',
-        component: () => import('@/pages/developments/tables/Index.vue')
+        path: 'inputpos',
+        name: 'inputpos',
+        component: () => import('@/pages/developments/tables/inputPos.vue')
       },
       {
-        path: 'listIzin',
-        name: 'listIzin',
-        component: () => import('@/pages/developments/tables/tablesIzin.vue')
+        path: 'listpos',
+        name: 'listpos',
+        component: () => import('@/pages/developments/tables/dataTablePos.vue')
       },{
-        path: 'listStatus',
-        name: 'listStatus',
-        component: () => import('@/pages/developments/tables/tablesStatus.vue')
+        path: 'inputdatapos',
+        name: 'inputdatapos',
+        component: () => import('@/pages/developments/tables/inputDatapos.vue')
       },
       {
         path: 'formstatus/:id',

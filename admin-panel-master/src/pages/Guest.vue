@@ -5,14 +5,14 @@
       <div>
         <h1 class="text-sm text-gray-700 font-medium">BBWS</h1>
         <p class="text-gray-700 text-xs">BRANTAS</p>
-        <!-- <h2 class="text-gray-700 text-xs">REKOMTEK</h2> -->
+        <!-- <h2 class="text-gray-700 text-xs">Hidrologi</h2> -->
       </div>
     </div>
     <div>
       <div class="girls_gard_container">
         <video  preload="auto" id="videoElement" controls 
   @canplay="updatePaused" @playing="updatePaused" @pause="updatePaused"> 
-      <source src="@/assets/Infografis Rekomtek TV Vers.mp4" type="video/mp4">
+      <source src="@/assets/Infografis Hidrologi TV Vers.mp4" type="video/mp4">
       <p>Sorry, there's a problem playing this video. Please try using a different browser.</p>
   </video>
         <!-- <img
@@ -24,7 +24,7 @@
     </div>
   <div class="flex justify-center ">
     <div class="box h-2/3 w-1/3 m-20">
-      <strong>Cek Status REKOMTEK</strong>
+      <strong>Cek Status Hidrologi</strong>
       <form id="app" @submit="checkForm">
         <input
           class="

@@ -4,7 +4,7 @@ var express = require('express');
 // import function from controller
 let { loginUser,showPermohonan,showPermohonanByNama, showPermohonanById, createPermohonan, updatePermohonan, deletePermohonan } =require("../controller/permohonan.js");
 let { showStatus, showStatusById, createStatus, updateStatus, deleteStatus } =require("../controller/status.js");
-let { showIzin, showIzinById, createIzin, updateIzin, deleteIzin } =require("../controller/izin.js");
+let { showDataPos, showDataPosById, createDataPos, updateDataPos, deleteDataPos } =require("../controller/DataPos.js");
  
 // init express router
 const router = express.Router();
@@ -42,17 +42,17 @@ router.put('/status/:id', updateStatus);
  
 // Delete Permohonan
 router.delete('/status/:id', deleteStatus);
-router.get('/izin', showIzin);
+router.get('/datapos', showDataPos);
  
 // Get Single Permohonan
-router.get('/izin/:id', showIzinById);
+router.get('/datapos/:id', showDataPosById);
  
 // Create New Permohonan
-router.post('/izin', createIzin);
+router.post('/datapos', createDataPos);
  
 // Update Permohonan
-router.put('/izin/:id', updateIzin);
+router.put('/datapos/:id', updateDataPos);
  
 // Delete Permohonan
-router.delete('/izin/:id', deleteIzin);
+router.delete('/datapos/:id', deleteDataPos);
 module.exports = router;
