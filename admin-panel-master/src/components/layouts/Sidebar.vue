@@ -32,29 +32,13 @@
           <menu-item-sub text="Data Pos" :route="{name: 'listpos'}" />
         </template>
       </menu-item>
-
-      <!-- <menu-header class="mt-10" text="Menu" />
-      <menu-item icon="home-icon-o" text="Home" :route="{path: '/'}" />
-      <menu-item icon="view-grid-icon-o" text="Accounts">
+      <menu-item icon="cube-icon-o" text="Duga Air">
         <template #sub-menu>
-          <menu-item-sub text="PayPal" />
-          <menu-item-sub text="ShopeePay" />
+          <menu-item-sub text="Input Data Pos" :route="{name: 'inputposDA'}" />
+          <menu-item-sub text="Input Pos Duga Air" :route="{name: 'inputdataposDA'}" />
+          <menu-item-sub text="Data Pos" :route="{name: 'listposDA'}" />
         </template>
       </menu-item>
-      <menu-item icon="credit-card-icon-o" text="Cards" />
-      <menu-item icon="users-icon-o" text="Contacts" />
-      <menu-item icon="calculator-icon-o" text="Loan Calculator" />
-      <menu-item icon="cog-icon-o" text="Settings">
-        <template #sub-menu>
-          <menu-item-sub text="Profile" />
-          <menu-item-sub text="Security" />
-        </template>
-      </menu-item>
-
-      <menu-header class="mt-10" text="Scheduled Payments" />
-      <menu-item icon="check-circle-icon-o" icon-class="text-blue-400" text="Monthly Rent" />
-      <menu-item icon="check-circle-icon-o" icon-class="text-red-400" text="Food Payment" />
-      <menu-item icon="check-circle-icon-o" icon-class="text-green-400" text="Utility Bills" /> -->
     </div>
   </div>
 </template>

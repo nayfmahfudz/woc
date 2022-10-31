@@ -1,9 +1,22 @@
-let { deleteDataPosById,getDataPos,getDataPosById,insertDataPos,updateDataPosById ,insertLaporanDataPos} = require("../models/DataPosModels.js");
+let {insertDataPosda, getDataPosda,deleteDataPosById,getDataPos,getDataPosById,insertDataPos,updateDataPosById ,insertLaporanDataPos} = require("../models/DataPosModels.js");
  
 // Get All DataPoss
 exports.showDataPos = (req, res) => {
     // console.log(req);
     getDataPos((err, results) => {
+        if (err){
+            console.log(err);
+            res.send(err);
+        }else{
+            console.log(results);
+            
+            res.json(results);
+        }
+    });
+}
+exports.showDataPosda = (req, res) => {
+    // console.log(req);
+    getDataPosda((err, results) => {
         if (err){
             console.log(err);
             res.send(err);
@@ -30,6 +43,18 @@ exports.showDataPosById = (req, res) => {
 exports.createDataPos = (req, res) => {
     const data = req.body;
     insertDataPos(data, (err, results) => {
+        console.log(data);
+        if (err){
+            res.json("Data Tidak Tersimpan");
+        }else{
+            res.json("Data Tersimpan");
+        }
+    });
+}
+
+exports.createDataPosda = (req, res) => {
+    const data = req.body;
+    insertDataPosda(data, (err, results) => {
         console.log(data);
         if (err){
             res.json("Data Tidak Tersimpan");

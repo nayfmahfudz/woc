@@ -3,7 +3,7 @@ let db = require("../config/config.js");
 var date = new Date();
 // Get All Products
 exports.getDataPos = (result) => {
-    db.db.query("SELECT * FROM data_pos", (err, results) => {             
+    db.db.query("SELECT * FROM data_pos where kode_pos = 0", (err, results) => {             
         if(err) {
             console.log(err);
             result(err, null);
@@ -12,7 +12,17 @@ exports.getDataPos = (result) => {
         }
     });   
 }
- 
+
+exports.getDataPosda = (result) => {
+    db.db.query("SELECT * FROM data_pos where kode_pos = 1", (err, results) => {             
+        if(err) {
+            console.log(err);
+            result(err, null);
+        } else {
+            result(null, results);
+        }
+    });   
+}
 // Get Single Product
 exports.getDataPosById = (id, result) => {
     db.db.query("SELECT * FROM data_pos WHERE id = ?", [id], (err, results) => {             
@@ -46,8 +56,24 @@ exports.insertDataPos = async (data, result) => {
     error=null;
     respon="";
     await data.forEach(element => {
-        console.log(element);
-     
+    element.kode_pos=0; 
+    db.db.query("INSERT INTO data_pos SET ?", element, (err, results) => {             
+        if(err) {
+            console.log(err);
+           eroor=err;
+        } else {
+            respon=results;
+        }
+    });
+});
+error!==null?result(error, null):result(null, respon);  
+}
+
+exports.insertDataPosda = async (data, result) => {
+    error=null;
+    respon="";
+    await data.forEach(element => {
+        element.kode_pos=1; 
     db.db.query("INSERT INTO data_pos SET ?", element, (err, results) => {             
         if(err) {
             console.log(err);

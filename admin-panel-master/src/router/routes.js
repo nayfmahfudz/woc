@@ -44,13 +44,29 @@ const routes = [
         component: () => import('@/pages/developments/tables/inputPos.vue')
       },
       {
+        path: 'inputposDA',
+        name: 'inputposDA',
+        component: () => import('@/pages/developments/tables/inputPosDA.vue')
+      },
+      {
+        path: 'listposDA',
+        name: 'listposDA',
+        component: () => import('@/pages/developments/tables/dataTablePosDA.vue')
+      },
+      {
         path: 'listpos',
         name: 'listpos',
         component: () => import('@/pages/developments/tables/dataTablePos.vue')
-      },{
+      },
+      {
         path: 'inputdatapos',
         name: 'inputdatapos',
         component: () => import('@/pages/developments/tables/inputDatapos.vue')
+      },
+      {
+        path: 'inputdataposDA',
+        name: 'inputdataposDA',
+        component: () => import('@/pages/developments/tables/inputDataposDA.vue')
       },
       {
         path: 'formstatus/:id',

@@ -4,7 +4,7 @@ var express = require('express');
 // import function from controller
 let { loginUser,showPermohonan,showPermohonanByNama, showPermohonanById, createPermohonan, updatePermohonan, deletePermohonan } =require("../controller/permohonan.js");
 let { showStatus, showStatusById, createStatus, updateStatus, deleteStatus } =require("../controller/status.js");
-let { showDataPos, showDataPosById, createDataPos, updateDataPos, deleteDataPos } =require("../controller/DataPos.js");
+let {createDataPosda,showDataPosda, showDataPos, showDataPosById, createDataPos, updateDataPos, deleteDataPos } =require("../controller/DataPos.js");
  
 // init express router
 const router = express.Router();
@@ -43,12 +43,13 @@ router.put('/status/:id', updateStatus);
 // Delete Permohonan
 router.delete('/status/:id', deleteStatus);
 router.get('/datapos', showDataPos);
- 
+router.get('/dataposda', showDataPosda); 
 // Get Single Permohonan
 router.get('/datapos/:id', showDataPosById);
  
 // Create New Permohonan
 router.post('/datapos', createDataPos);
+router.post('/dataposda', createDataPosda);
  
 // Update Permohonan
 router.put('/datapos/:id', updateDataPos);
