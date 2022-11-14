@@ -28,15 +28,26 @@
       <menu-item icon="cube-icon-o" text="Curah Hujan">
         <template #sub-menu>
           <menu-item-sub text="Input Data Pos" :route="{name: 'inputpos'}" />
-          <menu-item-sub text="Input Pos Curah Hujan" :route="{name: 'inputdatapos'}" />
+          <menu-item-sub text="Live Data" :route="{name: 'liveDataCH'}" />
           <menu-item-sub text="Data Pos" :route="{name: 'listpos'}" />
         </template>
       </menu-item>
-      <menu-item icon="cube-icon-o" text="Duga Air">
+      <menu-item icon="cube-icon-o" text="Water Level">
         <template #sub-menu>
           <menu-item-sub text="Input Data Pos" :route="{name: 'inputposDA'}" />
-          <menu-item-sub text="Input Pos Duga Air" :route="{name: 'inputdataposDA'}" />
           <menu-item-sub text="Data Pos" :route="{name: 'listposDA'}" />
+        </template>
+      </menu-item>
+      <menu-item icon="cube-icon-o" text="Klimatologi">
+        <template #sub-menu>
+          <menu-item-sub text="Input Data Pos" :route="{name: 'inputposKL'}" />
+          <menu-item-sub text="Data Pos" :route="{name: 'listposKL'}" />
+        </template>
+      </menu-item>
+      <menu-item icon="cube-icon-o" text="Kualitas Air">
+        <template #sub-menu>
+          <menu-item-sub text="Input Data Pos" :route="{name: 'inputposKA'}" />
+          <menu-item-sub text="Data Pos" :route="{name: 'listposKA'}" />
         </template>
       </menu-item>
     </div>

@@ -195,13 +195,15 @@ export default {
       this.$swal(e);
     },
     simpan(e,date) {
-      this.$swal(moment(this.picked).format('YYYY-MM-DD'));
-      // axios
+      for (let i = 0; i < e.length; i++) {
+          return e[i].date =moment(this.picked).format('YYYY-MM-DD');
+      }
+      axios
 
-      //       .post(`http://localhost:5000/data`, e)
-      //       .then((response) => {
-      //         this.$swal(response.data);
-      // });
+            .post(`http://192.168.50.7:5000/data`, e)
+            .then((response) => {
+              this.$swal(response.data);
+      });
     },
   },
   created() {

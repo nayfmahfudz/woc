@@ -117,7 +117,7 @@ export default {
      this.$swal(e);
    },
    simpan(e,date) {
-     axios.post(`http://localhost:5000/dataposda`, this.csv)
+     axios.post(`http://192.168.50.7:5000/dataposda`, this.csv)
            .then((response) => {
              this.$swal(response.data);
      });

@@ -2,7 +2,7 @@
      <vue-csv-import
     v-slot="{file}"
     v-model="csv"
-    :fields="{Nama_Pos: {required: true, label: 'Nama_Pos'}, X: {required: true, label: 'x'},Y: {required: true, label: 'Y'},R: {required: true, label: 'R'}}"
+    :fields="{id: {required: true, label: 'id'},sih3: {required: true, label: 'sih3'},Nama_Pos: {required: true, label: 'Nama Pos'}, X: {required: true, label: 'X'},Y: {required: true, label: 'Y'},Nilai: {required: true, label: 'Nilai'}}"
 >
     <vue-csv-toggle-headers ></vue-csv-toggle-headers>
 <br>
@@ -16,7 +16,7 @@
 <br>
 <Datepicker v-model="picked" @change="onChangeIzin($event)" />
 <br>
-<div @click="simpan(csv,picked)" class="bg-blue-500 w-20 p-4  text-white hover:shadow-lg text-xs font-thin">Simpan</div>
+<div @click="simpan(csv)" class="bg-blue-500 w-20 p-4  text-white hover:shadow-lg text-xs font-thin">Simpan</div>
 <br>
   <div class="table w-full p-2">
     <table class="w-full border">
@@ -26,7 +26,28 @@
             class="p-2 border-r cursor-pointer text-sm font-thin text-gray-500"
           >
             <div class="flex items-center justify-center">
-              No
+              Id
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-4 w-4"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M8 9l4-4 4 4m0 6l-4 4-4-4"
+                />
+              </svg>
+            </div>
+          </th>
+          <th
+            class="p-2 border-r cursor-pointer text-sm font-thin text-gray-500"
+          >
+            <div class="flex items-center justify-center">
+              SIH3
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 class="h-4 w-4"
@@ -136,7 +157,13 @@
             :class=" 'p-2 border-r bg-gray-100 text-center border-b text-sm text-gray-600'
             "
           >
-            {{ index+1 }}
+            {{ item.id }}
+          </td>
+          <td
+            :class=" 'p-2 border-r bg-gray-100 text-center border-b text-sm text-gray-600'
+            "
+          >
+            {{ item.sih3 }}
           </td>
           <td
             :class="'p-2 border-r bg-gray-100 text-center border-b text-sm text-gray-600'
@@ -163,7 +190,7 @@
                 'p-2 border-r bg-gray-100 text-center border-b text-sm text-gray-600'
             "
           >
-            {{ item.R }}
+            {{ item.Nilai }}
           </td>
         </tr>
       </tbody>
@@ -194,14 +221,15 @@ export default {
     onChangeIzin(e) {
       this.$swal(e);
     },
-    simpan(e,date) {
-      this.$swal(moment(this.picked).format('YYYY-MM-DD'));
-      // axios
-
-      //       .post(`http://localhost:5000/data`, e)
-      //       .then((response) => {
-      //         this.$swal(response.data);
-      // });
+    simpan(e) {
+      for (let i = 0; i < e.length; i++) {
+       
+           e[i].date =moment(this.picked).format('YYYY-MM-DD');
+      }
+      axios.post(`http://192.168.50.7:5000/datach`, e)
+            .then((response) => {
+              this.$swal(response.data);
+      });
     },
   },
   created() {

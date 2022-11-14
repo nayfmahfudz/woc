@@ -54,6 +54,21 @@ const routes = [
         component: () => import('@/pages/developments/tables/dataTablePosDA.vue')
       },
       {
+        path: 'listposKL',
+        name: 'listposKL',
+        component: () => import('@/pages/developments/tables/dataTablePosKL.vue')
+      },
+      {
+        path: 'listposKA',
+        name: 'listposKA',
+        component: () => import('@/pages/developments/tables/dataTablePosKA.vue')
+      },
+      {
+        path: 'liveDataCH',
+        name: 'liveDataCH',
+        component: () => import('@/pages/developments/tables/liveDataCH.vue')
+      },
+      {
         path: 'listpos',
         name: 'listpos',
         component: () => import('@/pages/developments/tables/dataTablePos.vue')

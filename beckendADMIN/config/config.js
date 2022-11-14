@@ -4,8 +4,8 @@ let mysql = require("mysql2");
 exports.db = mysql.createPool({
   connectionLimit: 1000,
   queueLimit: 1000,
-  host: '127.0.0.1',
-  user: 'root',
+  host: '192.168.50.7',
+  user: 'brantas',
   password: '',
   database: 'hub'
 }); 
