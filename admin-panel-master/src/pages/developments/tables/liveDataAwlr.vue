@@ -1,4 +1,5 @@
 
+
 <template>
     <div class="table w-full p-2">
         <jsonExcel class="
@@ -140,9 +141,9 @@ export default {
     },
     methods: {},
     async created() {
-         await axios.get(`http://192.168.50.7:5000/livedataposhujan`).then(result=>{
+         await axios.get(`http://192.168.50.7:5000/livedataposda`).then(result=>{
             result.data.forEach(element => {
-                if(element.rain == true){
+                if(element.wl == true){
                     this.items.push(element);
                 }
           });

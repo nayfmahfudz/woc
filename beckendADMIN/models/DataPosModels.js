@@ -8,7 +8,7 @@ let tokenSih3 = async function tokenSih3() {
  ).then(response => {      
      console.log( response.data.access_token)
  return response.data.access_token ;
- });
+ }); 
  }
 let token = async function token() {
    return await axios.post(`http://103.53.78.162/api/v2/auth`,
@@ -34,6 +34,9 @@ exports.getDataPos = async (result) => {
     });
 }
 exports.insertCH =  async (data, result) => {
+    try {
+        
+    
         const config = {
         headers: { Authorization: `Bearer ${await token().then(response => {
             return response})}`,
@@ -84,6 +87,10 @@ exports.insertCH =  async (data, result) => {
     }
 }
     result(null, true);
+} catch (error) {
+    console.log(error);
+    result(true, null);
+}
 }
 // Get All Products
 exports.getDataPos = async (result) => {
@@ -103,7 +110,7 @@ exports.getDataPos = async (result) => {
                 let id = element.id;
                 await getDataPosByIdRemote( id , (err, results) => {
                      if(err){
-        
+        console.log(err);
                      }else{
                          element.sih3 = results.id_sih3;
                          datapos.push( element);
@@ -115,6 +122,44 @@ exports.getDataPos = async (result) => {
     });
     
 }
+exports.liveDataPosDa = async (result) => {
+   
+    const config = {
+        headers: { Authorization: `Bearer ${await token().then(response => {
+            return response})}`,
+        "Accept": "application/json, text/plain, */*",
+        "Content-Type": "application/json",
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Methods": " GET, OPTIONS",
+        "Access-Control-Allow-Headers": "Content-Type, Content-Length, Accept-Encoding",
+        "Access-Control-Allow-Credentials": "false",
+    }
+    };
+       await  axios.get(`http://103.53.78.162/api/v2/station`, config).then(async (response) => {
+        dataLive= [];
+              for(const element of response.data.items) {
+               
+           
+                if(element.wl==true){
+                    await axios.get(`http://103.53.78.162/api/v2/water_level/${element.id}/manual/${moment(new Date()).format("yyyy-MM-DD")}`, config).then( (response) => {
+                       
+                    if (response.data.items.length != 0 ) {
+                            console.log(response.data.items); 
+                            element.tanggal =response.data.items[0].dt;
+                            element.jam =response.data.items[0].t;
+                            element.nilai =response.data.items[0].v;
+                            element.foto =response.data.items[0].attachment_id;
+                        } 
+                        dataLive.push(element) ;
+                    });
+                   
+                }
+            }
+             result(null, dataLive);
+    });
+   
+}
+
 exports.liveDataPos = async (result) => {
    
     const config = {
@@ -134,13 +179,13 @@ exports.liveDataPos = async (result) => {
                
            
                 if(element.rain==true){
-                    await axios.get(`http://103.53.78.162/api/v2/rain/${element.id}/manual/${moment(new Date()).format("yyyy-MM-d")}`, config).then( (response) => {
+                    await axios.get(`http://103.53.78.162/api/v2/rain/${element.id}/manual/${moment(new Date()).format("yyyy-MM-DD")}`, config).then( (response) => {
                         element.tanggal =response.data.dt;
                         element.jam =response.data.t;
                         element.nilai =response.data.v;
                         element.foto =response.data.attachment_id;
                         dataLive.push(element) ;
-                        console.log("1");
+                        console.log(moment(new Date()).format("yyyy-MM-DD"));
                     });
                    
                 }

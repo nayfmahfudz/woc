@@ -69,6 +69,11 @@ const routes = [
         component: () => import('@/pages/developments/tables/liveDataCH.vue')
       },
       {
+        path: 'liveDataAwlr',
+        name: 'liveDataAwlr',
+        component: () => import('@/pages/developments/tables/liveDataAwlr.vue')
+      },
+      {
         path: 'listpos',
         name: 'listpos',
         component: () => import('@/pages/developments/tables/dataTablePos.vue')

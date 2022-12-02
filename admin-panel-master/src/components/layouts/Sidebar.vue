@@ -35,6 +35,7 @@
       <menu-item icon="cube-icon-o" text="Water Level">
         <template #sub-menu>
           <menu-item-sub text="Input Data Pos" :route="{name: 'inputposDA'}" />
+          <menu-item-sub text="Live Data" :route="{name: 'liveDataAwlr'}" />
           <menu-item-sub text="Data Pos" :route="{name: 'listposDA'}" />
         </template>
       </menu-item>

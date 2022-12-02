@@ -1,4 +1,4 @@
-let {insertCH,liveDataPos,getDataToken,insertDataPosda, insertToken,getDataPosda,deleteDataPosById,getDataPos,getDataPosById,insertDataPos,updateDataPosById ,insertLaporanDataPos} = require("../models/DataPosModels.js");
+let {insertCH,liveDataPosDa, liveDataPos,getDataToken,insertDataPosda, insertToken,getDataPosda,deleteDataPosById,getDataPos,getDataPosById,insertDataPos,updateDataPosById ,insertLaporanDataPos} = require("../models/DataPosModels.js");
  
 // Get All DataPoss
 exports.showDataPos = (req, res) => {
@@ -8,6 +8,15 @@ exports.showDataPos = (req, res) => {
             res.send(err);
         }else{
             
+            res.json(results);
+        }
+    });
+}
+exports.liveDA = (req, res) => {
+    liveDataPosDa((err, results) => {
+        if (err){
+            res.json(err);
+        }else{
             res.json(results);
         }
     });
